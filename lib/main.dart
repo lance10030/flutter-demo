@@ -34,6 +34,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    print(widget);
     return new Scaffold(
       appBar: new AppBar(
         title: new Text(widget.title),
@@ -49,6 +50,17 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.display1,
             ),
+            // go new page
+            FlatButton(
+              child: Text("open new route"),
+              textColor: Colors.blue,
+              onPressed: () {
+                //导航到新路由
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return NewRoute();
+                }));
+              },
+            ),
           ],
         ),
       ),
@@ -57,6 +69,20 @@ class _MyHomePageState extends State<MyHomePage> {
         tooltip: 'Increment',
         child: new Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
+    );
+  }
+}
+
+class NewRoute extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("New route"),
+      ),
+      body: Center(
+        child: Text("This is new route"),
+      ),
     );
   }
 }
