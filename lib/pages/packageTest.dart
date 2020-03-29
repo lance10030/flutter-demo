@@ -8,8 +8,17 @@ class NewRoute extends StatelessWidget {
         title: Text("New route"),
       ),
       body: Center(
-        child: Text("This is new route"),
-      ),
+          child: Text(
+        "Hello world",
+        style: TextStyle(
+            color: Colors.blue,
+            fontSize: 18.0,
+            height: 1.2,
+            fontFamily: "Courier",
+            background: new Paint()..color = Colors.yellow,
+            decoration: TextDecoration.underline,
+            decorationStyle: TextDecorationStyle.dashed),
+      )),
     );
   }
 }
