@@ -5,9 +5,10 @@ class NewRoute extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("New route"),
+        title: Text("text style"),
       ),
       body: Center(
+        // learn text style 
           child: Text(
         "Hello world",
         style: TextStyle(

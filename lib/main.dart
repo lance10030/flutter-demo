@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:helllo_flutter/pages/packageTest.dart';
+import 'package:helllo_flutter/pages/styleTest.dart';
 import 'package:helllo_flutter/pages/lifecycle.dart';
 void main() => runApp(new MyApp());
 
@@ -61,7 +61,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             // go new page
             FlatButton(
-              child: Text("learn route"),
+              child: Text("learn style"),
               textColor: Colors.blue,
               onPressed: () {
                 //导航到新路由
