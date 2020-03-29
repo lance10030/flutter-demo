@@ -7,9 +7,10 @@ class NewRoute extends StatelessWidget {
       appBar: AppBar(
         title: Text("text style"),
       ),
-      body: Center(
-        // learn text style 
-          child: Text(
+      body:  Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: <Widget>[
+       Text(
         "Hello world",
         style: TextStyle(
             color: Colors.blue,
@@ -19,7 +20,10 @@ class NewRoute extends StatelessWidget {
             background: new Paint()..color = Colors.yellow,
             decoration: TextDecoration.underline,
             decorationStyle: TextDecorationStyle.dashed),
-      )),
+      ),
+        Text("world"),
+      ],
+    )
     );
   }
 }
