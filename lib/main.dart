@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:helllo_flutter/pages/packageTest.dart';
 void main() => runApp(new MyApp());
 
 class MyApp extends StatelessWidget {
@@ -43,8 +43,15 @@ class _MyHomePageState extends State<MyHomePage> {
         child: new Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            new Text(
-              'You have pushed the button this many times:',
+            FlatButton(
+              child: Text("learn lifecycle"),
+              textColor: Colors.blue,
+              onPressed: () {
+                //导航到新路由
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return CounterWidget();
+                }));
+              },
             ),
             new Text(
               '$_counter',
@@ -52,7 +59,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             // go new page
             FlatButton(
-              child: Text("open new route"),
+              child: Text("learn route"),
               textColor: Colors.blue,
               onPressed: () {
                 //导航到新路由
@@ -73,16 +80,73 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
-class NewRoute extends StatelessWidget {
+
+
+class CounterWidget extends StatefulWidget {
+  const CounterWidget({
+    Key key,
+    this.initValue: 0
+  });
+
+  final int initValue;
+
+  @override
+  _CounterWidgetState createState() => new _CounterWidgetState();
+}
+class _CounterWidgetState extends State<CounterWidget> {  
+  int _counter;
+
+  @override
+  void initState() {
+    super.initState();
+    //初始化状态  
+    _counter=widget.initValue;
+    print("initState");
+  }
+
   @override
   Widget build(BuildContext context) {
+    print("build");
     return Scaffold(
-      appBar: AppBar(
-        title: Text("New route"),
-      ),
       body: Center(
-        child: Text("This is new route"),
+        child: FlatButton(
+          child: Text('$_counter'),
+          //点击后计数器自增
+          onPressed:()=>setState(()=> ++_counter,
+          ),
+        ),
       ),
     );
   }
+
+  @override
+  void didUpdateWidget(CounterWidget oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    print("didUpdateWidget");
+  }
+
+  @override
+  void deactivate() {
+    super.deactivate();
+    print("deactive");
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    print("dispose");
+  }
+
+  @override
+  void reassemble() {
+    super.reassemble();
+    print("reassemble");
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    print("didChangeDependencies");
+  }
+
 }
